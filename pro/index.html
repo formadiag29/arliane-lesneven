@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Espace pro Arliane Lesneven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout : une colonne de travail (outil diagnostics puis demande), repères réglementaires en dessous. Vert Arliane réservé aux actions et aux résultats. */
+:root{
+  --fond:#f4f6f1; --carte:#ffffff; --encre:#1f2a24; --encre-2:#56635b; --trait:#d9dfd3;
+  --vert:#5f8a1f; --vert-doux:#e6efd6; --alerte:#a8431a; --alerte-doux:#f8e6dc;
+  --f-titre:"Bricolage Grotesque","Trebuchet MS",sans-serif; --f-texte:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fond:#141a16; --carte:#1c241f; --encre:#eaf0e8; --encre-2:#a3b0a7; --trait:#303b34;
+    --vert:#a9cf5c; --vert-doux:#26331c; --alerte:#f0a27c; --alerte-doux:#3a2419; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --fond:#141a16; --carte:#1c241f; --encre:#eaf0e8; --encre-2:#a3b0a7; --trait:#303b34;
+  --vert:#a9cf5c; --vert-doux:#26331c; --alerte:#f0a27c; --alerte-doux:#3a2419; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--encre);font:16px/1.55 var(--f-texte)}
+.page{max-width:980px;margin:0 auto;padding:28px 18px 56px;display:flex;flex-direction:column;gap:22px}
+header{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--vert);padding-bottom:16px}
+.marque{font:700 30px/1.1 var(--f-titre);letter-spacing:-.01em}
+.marque span{color:var(--vert)}
+.sous{color:var(--encre-2);margin:4px 0 0}
+.contact{text-align:right;font-weight:600}
+.contact small{display:block;font-weight:400;color:var(--encre-2)}
+h1{font:700 26px/1.2 var(--f-titre);margin:0;text-wrap:balance}
+h2{font:700 21px/1.25 var(--f-titre);margin:0 0 4px;text-wrap:balance}
+h3{font:700 16px/1.3 var(--f-texte);margin:0 0 6px}
+p{margin:0}
+.intro{max-width:66ch;color:var(--encre-2)}
+section{background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:14px}
+select,input,textarea{font:inherit;color:var(--encre);background:var(--fond);border:1px solid var(--trait);border-radius:7px;padding:9px 10px;min-width:0;width:100%}
+textarea{min-height:84px;resize:vertical}
+select:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--vert);outline-offset:2px}
+.resultat{display:flex;flex-direction:column;gap:8px}
+.ligne{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:6px 16px;padding:11px 14px;border-radius:8px;background:var(--vert-doux)}
+.ligne b{font-weight:700}
+.ligne span{color:var(--encre-2);font-size:15px}
+.ligne.alerte{background:var(--alerte-doux)}
+.ligne.alerte b{color:var(--alerte)}
+.ligne.info{background:transparent;border:1px dashed var(--trait)}
+.compte{font-weight:700}
+.creneaux{display:flex;flex-wrap:wrap;gap:10px}
+.creneau{border:1px solid var(--vert);background:var(--vert-doux);color:var(--encre);border-radius:8px;padding:10px 14px;font:inherit;cursor:pointer;text-align:left}
+.creneau b{display:block}
+.creneau small{color:var(--encre-2)}
+.creneau[aria-pressed="true"]{background:var(--vert);color:var(--carte)}
+.creneau[aria-pressed="true"] small{color:inherit}
+.vide{padding:14px;border:1px dashed var(--trait);border-radius:8px;color:var(--encre-2)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font:600 16px var(--f-texte);border-radius:8px;padding:11px 18px;border:1px solid var(--vert);background:var(--vert);color:var(--carte);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.second{background:transparent;color:var(--vert)}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--fond);border:1px solid var(--trait);border-radius:8px;padding:14px}
+.note{font-size:14px;color:var(--encre-2);max-width:70ch}
+.reperes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.repere{border-top:3px solid var(--vert);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--trait);vertical-align:top}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--encre-2)}
+a{color:var(--vert)}
+footer{color:var(--encre-2);font-size:14px}
+@media (max-width:520px){.ligne{grid-template-columns:1fr}.contact{text-align:left}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div>
+    <div class="marque"><span>Arliane</span> Diagnostic Immobilier</div>
+    <p class="sous">Espace réservé aux professionnels de l'immobilier — agence de Lesneven</p>
+  </div>
+  <div class="contact">02 98 46 39 01<small>accueil@sas-liberge.fr · lundi au vendredi, 9h-12h et 14h-18h</small></div>
+</header>
+
+<div>
+  <h1>Vous rentrez un mandat ? Voyez en une minute ce qu'il faut faire.</h1>
+  <p class="intro" style="margin-top:8px">Décrivez le bien, la page liste les diagnostics à prévoir et nos prochains créneaux. Vous nous envoyez la demande, nous rappelons votre client pour fixer le rendez-vous.</p>
+</div>
+
+<section aria-labelledby="t-diag">
+  <div>
+    <h2 id="t-diag">1. Quels diagnostics pour ce bien ?</h2>
+    <p class="note">La liste se met à jour à chaque réponse.</p>
+  </div>
+  <div class="grille">
+    <label for="f-transaction">Opération
+      <select id="f-transaction"><option value="vente">Vente</option><option value="location">Location</option></select></label>
+    <label for="f-type">Type de bien
+      <select id="f-type"><option value="maison">Maison individuelle</option><option value="appartement">Appartement en copropriété</option></select></label>
+    <label for="f-annee">Permis de construire
+      <select id="f-annee"><option value="a1949">Avant 1949</option><option value="a1997" selected>De 1949 à juin 1997</option><option value="apres">Juillet 1997 ou après</option></select></label>
+    <label for="f-gaz">Installation de gaz
+      <select id="f-gaz"><option value="non">Pas de gaz</option><option value="plus">Plus de 15 ans</option><option value="moins">Moins de 15 ans</option></select></label>
+    <label for="f-elec">Installation électrique
+      <select id="f-elec"><option value="plus">Plus de 15 ans</option><option value="moins">Moins de 15 ans</option></select></label>
+    <label for="f-dpe">Étiquette DPE connue
+      <select id="f-dpe"><option value="inconnu">Pas encore de DPE</option><option value="ad">A, B, C ou D</option><option value="e">E</option><option value="f">F</option><option value="g">G</option></select></label>
+  </div>
+  <p class="compte" id="compte"></p>
+  <div class="resultat" id="resultat" aria-live="polite"></div>
+  <p class="note">Liste indicative, établie d'après vos réponses. Nous la confirmons au téléphone avec le propriétaire avant le rendez-vous.</p>
+</section>
+
+<section aria-labelledby="t-dispo">
+  <div>
+    <h2 id="t-dispo">2. Nos prochaines disponibilités</h2>
+    <p class="note" id="maj"></p>
+  </div>
+  <div id="creneaux" class="creneaux"></div>
+</section>
+
+<section aria-labelledby="t-demande">
+  <div>
+    <h2 id="t-demande">3. Envoyer la demande</h2>
+    <p class="note">Les diagnostics listés plus haut et le créneau choisi sont repris dans la demande.</p>
+  </div>
+  <form id="demande" class="grille">
+    <label for="d-agence">Votre agence<input id="d-agence" autocomplete="organization" required></label>
+    <label for="d-nom">Votre nom<input id="d-nom" autocomplete="name" required></label>
+    <label for="d-tel">Votre téléphone<input id="d-tel" type="tel" autocomplete="tel"></label>
+    <label for="d-mail">Votre mail<input id="d-mail" type="email" autocomplete="email" required></label>
+    <label for="d-commune">Commune du bien<input id="d-commune"></label>
+    <label for="d-surface">Surface ou nombre de pièces<input id="d-surface"></label>
+    <label for="d-echeance">Échéance (compromis, mise en location)<input id="d-echeance"></label>
+    <label for="d-msg" style="grid-column:1/-1">Précisions (accès, clés, occupant, question)<textarea id="d-msg"></textarea></label>
+    <div class="actions" style="grid-column:1/-1">
+      <button class="btn" type="submit">Préparer la demande</button>
+    </div>
+  </form>
+  <div id="sortie" hidden style="display:none;flex-direction:column;gap:12px">
+    <pre id="texte"></pre>
+    <div class="actions">
+      <button class="btn" type="button" id="copier">Copier la demande</button>
+      <a class="btn second" id="mailto" href="mailto:accueil@sas-liberge.fr">Ouvrir dans ma messagerie</a>
+      <span class="note" id="etat" aria-live="polite"></span>
+    </div>
+    <p class="note">La demande n'est pas envoyée par cette page. Collez-la dans un mail à <b>accueil@sas-liberge.fr</b>, ou appelez le <b>02 98 46 39 01</b>.</p>
+  </div>
+</section>
+
+<section aria-labelledby="t-reperes">
+  <div>
+    <h2 id="t-reperes">Repères pour vos rendez-vous vendeurs et bailleurs</h2>
+  </div>
+  <div class="reperes">
+    <div class="repere">
+      <h3>Location : le calendrier des étiquettes</h3>
+      <ul>
+        <li><b>Depuis le 1er janvier 2025</b> : un logement classé G ne peut plus faire l'objet d'un nouveau bail.</li>
+        <li><b>1er janvier 2028</b> : même règle pour la classe F.</li>
+        <li><b>1er janvier 2034</b> : même règle pour la classe E.</li>
+      </ul>
+    </div>
+    <div class="repere">
+      <h3>Vente : quand l'audit énergétique s'ajoute</h3>
+      <ul>
+        <li>Maison individuelle ou immeuble appartenant à un seul propriétaire.</li>
+        <li>Classes F et G depuis avril 2023, classe E depuis le 1er janvier 2025.</li>
+        <li>Classe D à partir du 1er janvier 2034.</li>
+        <li>À remettre à l'acquéreur dès la première visite.</li>
+      </ul>
+    </div>
+    <div class="repere">
+      <h3>Nouvelle étiquette DPE au 1er janvier 2027</h3>
+      <p>Saisissez le numéro ADEME d'un DPE existant, notre simulateur donne la nouvelle lettre.</p>
+      <p><a href="https://arliane-lesneven.sas-liberge.fr" target="_blank" rel="noopener">Ouvrir le simulateur Arliane Lesneven</a></p>
+    </div>
+    <div class="repere">
+      <h3>À demander au propriétaire avant la visite</h3>
+      <ul>
+        <li>Anciens diagnostics, même périmés.</li>
+        <li>Factures de travaux : isolation, fenêtres, chauffage, ventilation.</li>
+        <li>Plans, permis de construire, taxe foncière.</li>
+        <li>En copropriété : règlement et relevé de charges.</li>
+        <li>Accès à toutes les pièces, aux combles et au vide sanitaire.</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <h3>Durées de validité</h3>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Diagnostic</th><th>Vente</th><th>Location</th></tr></thead>
+      <tbody>
+        <tr><td>DPE</td><td>10 ans</td><td>10 ans</td></tr>
+        <tr><td>Amiante</td><td>Illimitée si absence d'amiante</td><td>Illimitée si absence d'amiante</td></tr>
+        <tr><td>Plomb (CREP)</td><td>1 an si présence, illimitée sinon</td><td>6 ans si présence, illimitée sinon</td></tr>
+        <tr><td>Électricité, gaz</td><td>3 ans</td><td>6 ans</td></tr>
+        <tr><td>ERP</td><td>6 mois</td><td>6 mois</td></tr>
+        <tr><td>Mesurage</td><td colspan="2">Illimitée tant qu'il n'y a pas de travaux modifiant la surface</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Arliane Diagnostic Immobilier — 15 rue Général de Gaulle, 29260 Lesneven — 02 98 46 39 01 — accueil@sas-liberge.fr<br>
+  Page réservée aux professionnels à qui nous l'avons transmise. Les informations réglementaires sont données à titre indicatif.
+</footer>
+</div>
+
+<script>
+/* ===== DISPONIBILITÉS : seule partie à mettre à jour à la main =====
+   Un créneau = { jour: "Jeudi 27 novembre", moment: "matin", secteur: "Lesneven et côte des Légendes" }
+   Laisser la liste vide pour afficher le message "appelez-nous". */
+var MISE_A_JOUR = "25 novembre";
+var CRENEAUX = [
+  { jour: "Lundi 30 novembre", moment: "après-midi", secteur: "Tout le secteur" },
+  { jour: "Mardi 1er décembre", moment: "après-midi", secteur: "Tout le secteur" },
+  { jour: "Mercredi 2 décembre", moment: "matin", secteur: "Tout le secteur" },
+  { jour: "Mercredi 2 décembre", moment: "après-midi", secteur: "Tout le secteur" },
+  { jour: "Jeudi 3 décembre", moment: "matin", secteur: "Tout le secteur" }
+];
+/* ================================================================== */
+
+var $ = function(id){ return document.getElementById(id); };
+var choisi = null;
+
+function diagnostics(){
+  var t=$("f-transaction").value, type=$("f-type").value, an=$("f-annee").value,
+      gaz=$("f-gaz").value, elec=$("f-elec").value, dpe=$("f-dpe").value;
+  var vente = t==="vente", L=[];
+  L.push({n:"DPE", r: dpe==="inconnu" ? "Obligatoire pour toute vente et toute location, dès l'annonce." : "Obligatoire. Vérifiez sa date : 10 ans de validité, et les DPE antérieurs à juillet 2021 ne sont plus valables."});
+  if(an!=="apres"){
+    if(vente) L.push({n:"Amiante", r:"Permis de construire antérieur au 1er juillet 1997."});
+    else if(type==="appartement") L.push({n:"Amiante, parties privatives", r:"Immeuble d'avant juillet 1997 : dossier à tenir à la disposition du locataire."});
+  }
+  if(an==="a1949") L.push({n:"Plomb (CREP)", r:"Logement construit avant 1949."});
+  if(elec==="plus") L.push({n:"Électricité", r:"Installation de plus de 15 ans."});
+  if(gaz==="plus") L.push({n:"Gaz", r:"Installation de plus de 15 ans."});
+  if(vente && type==="appartement") L.push({n:"Mesurage loi Carrez", r:"Vente d'un lot de copropriété."});
+  if(!vente) L.push({n:"Surface habitable", r:"À mentionner dans le bail (loi Boutin)."});
+  if(vente) L.push({n:"État parasitaire", r:"Conseillé pour toute vente dans le Nord-Finistère : mérule et insectes du bois."});
+  L.push({n:"ERP", r:"État des risques et pollutions, pour toute vente et toute location. Valable 6 mois."});
+  var extra=[];
+  if(vente && type==="maison"){
+    if(dpe==="e"||dpe==="f"||dpe==="g") L.push({n:"Audit énergétique", r:"Maison classée "+dpe.toUpperCase()+" : obligatoire, à remettre dès la première visite."});
+    else if(dpe==="inconnu") extra.push({n:"Audit énergétique", r:"À ajouter si le DPE classe la maison E, F ou G. Nous vous le disons dès le DPE réalisé.", c:"info"});
+  }
+  if(!vente && dpe==="g") extra.push({n:"Attention : classe G", r:"Ce logement ne peut plus faire l'objet d'un nouveau bail tant qu'il reste classé G.", c:"alerte"});
+  if(!vente && dpe==="f") extra.push({n:"À anticiper : classe F", r:"Nouveau bail impossible à partir du 1er janvier 2028 sans travaux.", c:"alerte"});
+  if(vente && type==="maison") extra.push({n:"Assainissement", r:"Si la maison n'est pas raccordée au tout-à-l'égout, le contrôle relève du SPANC. Nous ne le réalisons pas.", c:"info"});
+  return {liste:L, extra:extra};
+}
+
+function afficher(){
+  var d=diagnostics(), box=$("resultat"); box.textContent="";
+  $("compte").textContent = d.liste.length+" diagnostics à prévoir";
+  d.liste.concat(d.extra).forEach(function(x){
+    var div=document.createElement("div"); div.className="ligne"+(x.c?" "+x.c:"");
+    var b=document.createElement("b"); b.textContent=x.n;
+    var s=document.createElement("span"); s.textContent=x.r;
+    div.appendChild(b); div.appendChild(s); box.appendChild(div);
+  });
+}
+
+function creneaux(){
+  var box=$("creneaux"); box.textContent="";
+  $("maj").textContent = MISE_A_JOUR ? "Mis à jour le "+MISE_A_JOUR+". Cliquez sur un créneau pour le joindre à votre demande." : "";
+  if(!CRENEAUX.length){
+    var p=document.createElement("p"); p.className="vide";
+    p.textContent="Les créneaux de la semaine ne sont pas encore affichés. Appelez le 02 98 46 39 01, nous vous donnons le premier disponible.";
+    box.appendChild(p); return;
+  }
+  CRENEAUX.forEach(function(c,i){
+    var b=document.createElement("button"); b.type="button"; b.className="creneau"; b.setAttribute("aria-pressed","false");
+    var t=document.createElement("b"); t.textContent=c.jour+", "+c.moment;
+    var s=document.createElement("small"); s.textContent=c.secteur||"";
+    b.appendChild(t); b.appendChild(s);
+    b.addEventListener("click",function(){
+      choisi = (choisi===i)? null : i;
+      Array.prototype.forEach.call(box.children,function(el,j){ el.setAttribute("aria-pressed", String(j===choisi)); });
+    });
+    box.appendChild(b);
+  });
+}
+
+function lib(id){ var s=$(id); return s.options[s.selectedIndex].text; }
+
+function preparer(e){
+  e.preventDefault();
+  var d=diagnostics(), c = choisi!==null ? CRENEAUX[choisi] : null;
+  var t=[
+    "Demande de diagnostics — "+$("d-agence").value,
+    "Contact : "+$("d-nom").value+($("d-tel").value?" — "+$("d-tel").value:""),
+    "Mail : "+$("d-mail").value,
+    "",
+    "Bien : "+lib("f-type")+", "+lib("f-transaction").toLowerCase()+($("d-commune").value?", "+$("d-commune").value:""),
+    "Surface ou pièces : "+($("d-surface").value||"non précisé"),
+    "Permis de construire : "+lib("f-annee").toLowerCase(),
+    "Gaz : "+lib("f-gaz").toLowerCase()+" — Électricité : "+lib("f-elec").toLowerCase(),
+    "DPE connu : "+lib("f-dpe"),
+    "",
+    "Diagnostics à prévoir : "+d.liste.map(function(x){return x.n;}).join(", "),
+    "Créneau souhaité : "+(c? c.jour+", "+c.moment : "le premier disponible"),
+    "Échéance : "+($("d-echeance").value||"non précisée")
+  ];
+  if($("d-msg").value) t.push("","Précisions : "+$("d-msg").value);
+  var texte=t.join("\n");
+  $("texte").textContent=texte;
+  $("mailto").href="mailto:accueil@sas-liberge.fr?subject="+encodeURIComponent("Demande de diagnostics — "+$("d-agence").value)+"&body="+encodeURIComponent(texte);
+  var s=$("sortie"); s.hidden=false; s.style.display="flex"; $("etat").textContent="";
+  s.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+$("copier").addEventListener("click",function(){
+  var txt=$("texte").textContent;
+  try{
+    navigator.clipboard.writeText(txt).then(function(){ $("etat").textContent="Demande copiée."; },
+      function(){ $("etat").textContent="Copie impossible : sélectionnez le texte ci-dessus."; });
+  }catch(err){ $("etat").textContent="Copie impossible : sélectionnez le texte ci-dessus."; }
+});
+["f-transaction","f-type","f-annee","f-gaz","f-elec","f-dpe"].forEach(function(id){ $(id).addEventListener("change",afficher); });
+$("demande").addEventListener("submit",preparer);
+afficher(); creneaux();
+</script>
+</body>
+</html>
